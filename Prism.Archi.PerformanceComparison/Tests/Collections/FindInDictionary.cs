@@ -8,6 +8,8 @@ namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
     using System.Linq;
 
+    using Prism.Archi.PerformanceComparison.Models;
+
     public class FindInDictionary : BaseFindInList
     {
         public override string Name => "Find items in list with dictionary";
@@ -19,7 +21,7 @@ namespace Prism.Archi.PerformanceComparison.Tests.Collections
             for (var i = 0; i < this.hits; i++)
             {
                 var id = this.dice.Next(0, this.itemsCount).ToString();
-                var found = dictionary[id];
+                var success = dictionary.TryGetValue(id, out Foo found);
             }
         }
     }
