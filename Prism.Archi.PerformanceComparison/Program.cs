@@ -8,8 +8,9 @@
     {
         public static void Main(string[] args)
         {
-            var comparison = new PerformanceComparer(1000);
+            var comparison = new PerformanceComparer(1000, new Dictionary<string, object> { { "hits", 42 }, { "itemsCount", 10000 } });
             comparison.PerformanceTests.Add(new FindInList());
+            comparison.PerformanceTests.Add(new FindInDictionary());
             comparison.Run();
         }
     }

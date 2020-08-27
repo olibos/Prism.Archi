@@ -11,6 +11,8 @@ namespace Prism.Archi.PerformanceComparison
     using System.Diagnostics;
     using System.Linq;
 
+    using Newtonsoft.Json;
+
     using Prism.Archi.PerformanceComparison.Tests;
 
     public class PerformanceComparer
@@ -28,7 +30,7 @@ namespace Prism.Archi.PerformanceComparison
 
         public void Run()
         {
-            this.Log("Start the performance comparison");
+            this.Log($"Start the performance comparison - {JsonConvert.SerializeObject(this.parameters)}");
 
             for (var i = 0; i < this.PerformanceTests.Count; i++)
             {

@@ -1,24 +1,25 @@
 // -----------------------------------------------------------------------
-//  <copyright file="FindInList.cs" company="CPH">
+//  <copyright file="FindInDictionary.cs" company="CPH">
 //  Copyright (c) CPH. All rights reserved.
 //  </copyright>
 // -----------------------------------------------------------------------
 
 namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
-    using System.Collections.Generic;
     using System.Linq;
 
-    public class FindInList : BaseFindInList
+    public class FindInDictionary : BaseFindInList
     {
-        public override string Name => "Find items in list with where";
+        public override string Name => "Find items in list with dictionary";
 
         public override void Execute()
         {
+            var dictionary = this.items.ToDictionary(x => x.Id);
+
             for (var i = 0; i < this.hits; i++)
             {
                 var id = this.dice.Next(0, this.itemsCount).ToString();
-                var found = this.items.Where(x => x.Id == id);
+                var found = dictionary[id];
             }
         }
     }
