@@ -21,7 +21,7 @@ namespace Prism.Archi.PerformanceComparison.Tests.Collections
             for (var i = 0; i < this.hits; i++)
             {
                 var id = this.dice.Next(0, this.itemsCount).ToString();
-                var success = dictionary.TryGetValue(id, out Foo found);
+                var success = dictionary.TryGetValue(id, out var found);
             }
         }
     }
