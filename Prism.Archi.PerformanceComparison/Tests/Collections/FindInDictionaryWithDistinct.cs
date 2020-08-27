@@ -17,13 +17,16 @@ namespace Prism.Archi.PerformanceComparison.Tests.Collections
 
         public override void Execute()
         {
-            var keys = this.items.Select(x => x.Id).Distinct();
             var dictionary = new Dictionary<string, Foo>();
 
-            foreach (var key in keys)
+            foreach (var item in this.items)
             {
-                var item = this.items.First(x => x.Id == key);
-                dictionary.Add(key, item);
+                if (dictionary.ContainsKey(item.Id))
+                {
+                    continue;
+                }
+
+                dictionary.Add(item.Id, item);
             }
 
             for (var i = 0; i < this.hits; i++)
