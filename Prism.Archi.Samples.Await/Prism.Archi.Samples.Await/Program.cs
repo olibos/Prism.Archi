@@ -6,7 +6,6 @@ namespace Prism.Archi.Samples.Await
 {
     using System;
     using System.Diagnostics;
-    using System.Linq;
     using System.Threading.Tasks;
 
     internal class Program
@@ -77,16 +76,11 @@ namespace Prism.Archi.Samples.Await
             var task5 = WaitRandomTime();
             Log(timer, "Call 5 started");
 
-            var elapsed1 = await task1;
-            Log(timer, $"Call 1 done : {elapsed1.TotalMilliseconds}");
-            var elapsed2 = await task2;
-            Log(timer, $"Call 2 done : {elapsed2.TotalMilliseconds}");
-            var elapsed3 = await task3;
-            Log(timer, $"Call 3 done : {elapsed3.TotalMilliseconds}");
-            var elapsed4 = await task4;
-            Log(timer, $"Call 4 done : {elapsed4.TotalMilliseconds}");
-            var elapsed5 = await task5;
-            Log(timer, $"Call 5 done : {elapsed5.TotalMilliseconds}");
+            var elapseds = await Task.WhenAll(task1, task2, task3, task4, task5);
+            for (int i = 0, c = elapseds.Length; i < c; i++)
+            {
+                Log(timer, $"Call {i + 1} done : {elapseds[i].TotalMilliseconds}");
+            }
         }
     }
 }
