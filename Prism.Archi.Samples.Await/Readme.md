@@ -16,6 +16,7 @@ Here are two samples of code used to run 5 async method at the same time and get
 ==> If you want to run code in // you have to start the task and, later, await the task ! There is no magic :)
 
 ## Program output
+Look at the timers :)
 ```
 ThisDoesNotWorkInParallel
 ===> This code does NOT work in //
