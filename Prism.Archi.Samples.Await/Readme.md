@@ -20,27 +20,28 @@ Look at the timers :)
 ```
 ThisDoesNotWorkInParallel
 ===> This code does NOT work in //
-10:56:56.805 - Call 1 started
-10:56:58.796 - Call 2 started
-10:57:00.461 - Call 3 started
-10:57:01.537 - Call 4 started
-10:57:02.587 - Call 5 started
-10:57:02.588 - Call 1 done : 1236
-10:57:02.588 - Call 2 done : 1976
-10:57:02.588 - Call 3 done : 1645
-10:57:02.588 - Call 4 done : 1060
-10:57:02.588 - Call 5 done : 1040
+00:00:01.8316319 - Call 1 started
+00:00:03.4442442 - Call 2 started
+00:00:05.0512284 - Call 3 started
+00:00:06.7794055 - Call 4 started
+00:00:08.2252062 - Call 5 started
+00:00:08.2253551 - Call 1 done : 1809
+00:00:08.2254910 - Call 2 done : 1595
+00:00:08.2255793 - Call 3 done : 1596
+00:00:08.2256712 - Call 4 done : 1726
+00:00:08.2257630 - Call 5 done : 1436
 
-ThisWorkInParallel
+
 ===> This code does work //
-10:57:02.590 - Call 1 started
-10:57:02.590 - Call 2 started
-10:57:02.590 - Call 3 started
-10:57:02.590 - Call 4 started
-10:57:02.590 - Call 5 started
-10:57:03.722 - Call 1 done : 1127
-10:57:04.460 - Call 2 done : 1865
-10:57:04.460 - Call 3 done : 1549
-10:57:04.460 - Call 4 done : 1668
-10:57:04.460 - Call 5 done : 1037
+00:00:00.0000180 - Call 1 started
+00:00:00.0001710 - Call 2 started
+00:00:00.0003135 - Call 3 started
+00:00:00.0004127 - Call 4 started
+00:00:00.0005086 - Call 5 started
+00:00:01.9166442 - Call 1 done : 1910
+00:00:01.9167338 - Call 2 done : 1258
+00:00:01.9167950 - Call 3 done : 1157
+00:00:01.9931847 - Call 4 done : 1990
+00:00:01.9936629 - Call 5 done : 1522
+
 ```
