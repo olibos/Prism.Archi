@@ -14,8 +14,8 @@ namespace Prism.Archi.Samples.Await
 
         public static async Task Main(string[] args)
         {
-            await ThisDoesNotWorkAsync();
-            await ThisWorkAsync();
+            await ThisDoesNotWorkInParallel();
+            await ThisWorkInParallel();
         }
 
         public static async Task<TimeSpan> WaitRandomTime()
@@ -30,7 +30,7 @@ namespace Prism.Archi.Samples.Await
             Console.WriteLine($"{DateTime.Now:HH:mm:ss.fff} - {content}");
         }
 
-        private static async Task ThisDoesNotWorkAsync()
+        private static async Task ThisDoesNotWorkInParallel()
         {
             Console.WriteLine("===> This code does NOT work in //");
 
@@ -52,12 +52,11 @@ namespace Prism.Archi.Samples.Await
             var elapsed3 = response3.TotalMilliseconds;
             Log($"Call 3 done : {elapsed3}");
             var elapsed4 = response4.TotalMilliseconds;
-            Log($"Call 4 done : {elapsed4}");
-            var elapsed5 = response5.TotalMilliseconds;
+            Log($"Call 4 done : {elapsed4}"); var elapsed5 = response5.TotalMilliseconds;
             Log($"Call 5 done : {elapsed5}");
         }
 
-        private static async Task ThisWorkAsync()
+        private static async Task ThisWorkInParallel()
         {
             Console.WriteLine("===> This code does work //");
 
