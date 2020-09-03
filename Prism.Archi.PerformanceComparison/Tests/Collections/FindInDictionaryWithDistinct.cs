@@ -6,22 +6,33 @@
 
 namespace Prism.Archi.PerformanceComparison.Tests.Collections
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     using Prism.Archi.PerformanceComparison.Models;
 
-    public class FindInDictionary : BaseFindInList
+    public class FindInDictionaryWithDistinct : BaseFindInList
     {
-        public override string Name => "Find items in list with dictionary";
+        public override string Name => "Find items in list with distinct dictionary";
 
         public override void Execute()
         {
-            var dictionary = this.items.ToDictionary(x => x.Id);
+            var dictionary = new Dictionary<string, Foo>();
+
+            foreach (var item in this.items)
+            {
+                if (dictionary.ContainsKey(item.Id))
+                {
+                    continue;
+                }
+
+                dictionary.Add(item.Id, item);
+            }
 
             for (var i = 0; i < this.hits; i++)
             {
                 var id = this.dice.Next(0, this.itemsCount).ToString();
-                var success = dictionary.TryGetValue(id, out var found);
+                var found = dictionary[id];
             }
         }
     }
